@@ -18,7 +18,7 @@ fun main() {
         println("Client connected: $client")
 
         try {
-            // purpose of this server is to receive two values, add & return then
+            // purpose of this server is to receive two values, add & return them
             // not very useful, this is just an example
 
             val input = ObjectInputStream(client.getInputStream())

