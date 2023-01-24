@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream
 import java.util.*
 
 fun main() {
-    ObjectOutputStream(FileOutputStream("../payload.sbin")).use {
+    ObjectOutputStream(FileOutputStream("../payload.ser")).use {
         it.writeObject(makePayloadObject())
     }
 }
